@@ -27,7 +27,7 @@ public class Noticia {
     private String id;
     
     private String titulo;
-    private MultipartFile imagen;
+    //private MultipartFile imagen;
     private String cuerpo;
     @Temporal(TemporalType.DATE)
     private Date fechaAlta;
@@ -53,13 +53,13 @@ public class Noticia {
         this.titulo = titulo;
     }
 
-    public MultipartFile getImagen() {
+    /*public MultipartFile getImagen() {
         return imagen;
     }
 
     public void setImagen(MultipartFile imagen) {
         this.imagen = imagen;
-    }
+    }*/
 
     public String getCuerpo() {
         return cuerpo;

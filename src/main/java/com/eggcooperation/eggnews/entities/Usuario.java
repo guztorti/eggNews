@@ -23,9 +23,7 @@ public class Usuario {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    @Type(type = "email")
     private String email;
-    @Type(type = "password")
     private String clave;
 
     public Usuario() {
