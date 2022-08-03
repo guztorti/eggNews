@@ -1,3 +1,19 @@
 body{
-    background-color: coral;
+     background-color: coral;
+
+}
+.horizontal-align{
+     align-items: flex-start;
+     orientation: land
+}
+.separados{
+     padding: 2x;
+}
+.tamanio-3{
+     size: 24px;
+     text-height: 24px;
+     font-size: 24px;
+}
+.no-decoration{
+     text-decoration: none;
 }

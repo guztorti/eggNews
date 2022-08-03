@@ -6,6 +6,7 @@
 package com.eggcooperation.eggnews.repositories;
 
 import com.eggcooperation.eggnews.entities.Noticia;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,5 +21,8 @@ public interface NoticiaRepositorio extends JpaRepository<Noticia, String>{
     
     @Query("SELECT n FROM Noticia n WHERE n.titulo = :titulo")
     public Noticia buscarPorTitulo(@Param("titulo") String titulo);
+    
+    @Query("SELECT n FROM Noticia n WHERE n.borrada!=true ORDER BY n.fechaAlta desc")
+    public List<Noticia> listarNoticias();
     
 }

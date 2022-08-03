@@ -13,13 +13,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.web.multipart.MultipartFile;
+import com.eggcooperation.eggnews.entities.Imagen;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import lombok.Data;
 
 /**
  *
  * @author Gustavo Torti
  */
 @Entity
+@Data
 public class Noticia {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -27,63 +32,21 @@ public class Noticia {
     private String id;
     
     private String titulo;
-    //private MultipartFile imagen;
+    
+    @OneToOne
+    private Imagen imagen;
+    
+    @Column(columnDefinition="varchar(500)")
     private String cuerpo;
-    @Temporal(TemporalType.DATE)
+    
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaAlta;
+    
     @ManyToOne
     private Usuario autor;
-
-    public Noticia() {
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    /*public MultipartFile getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(MultipartFile imagen) {
-        this.imagen = imagen;
-    }*/
-
-    public String getCuerpo() {
-        return cuerpo;
-    }
-
-    public void setCuerpo(String cuerpo) {
-        this.cuerpo = cuerpo;
-    }
-
-    public Date getFechaAlta() {
-        return fechaAlta;
-    }
-
-    public void setFechaAlta(Date fechaAlta) {
-        this.fechaAlta = fechaAlta;
-    }
-
-    public Usuario getAutor() {
-        return autor;
-    }
-
-    public void setAutor(Usuario autor) {
-        this.autor = autor;
-    }
     
+   
+    private boolean borrada;
+
     
 }

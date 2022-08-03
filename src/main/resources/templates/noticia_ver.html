@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+     <head th:replace="fragments/head :: head">
+          <title> sin errores</title>
+     </head>
+     <body>
+          <header>
+               <h3 th:text="${noticia.titulo}"></h3>
+               <hr/>
+          </header>
+          <div>
+               <img th:if="${noticia.imagen!=null}" th:src="${'/imagen/noticia?idNoticia=__${noticia.id}__' }" alt="imagen de noticia" width="600px"/>
+               <img th:unless="${noticia.imagen!=null}" style="display:none" /> 
+               <p th:text="${noticia.cuerpo}"></p>  
+          </div>
+     </body>
+</html>

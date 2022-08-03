@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+     
+     <head th:replace="fragments/head :: head">
+          <title />
+     </head>
+     
+     <body>
+          <form th:action="@{/noticia/registrar}" method="POST" class="form-control-color" enctype="multipart/form-data">
+               <div class="form-group separados">
+                    <div class="horizontal-align">
+                         
+                         <h3>Título</h3>
+                         <input name="titulo" type="text" class="form-group separados alert tamanio-3" placeholder="Título" />
+                    </div>
+               </div>
+               <div class="form-group separados">
+                    <textarea name="cuerpo" rows="5" cols="100" placeholder="Cuerpo de la noticia" class="form-group separados secondary"></textarea>
+               </div>
+               <div class="">
+                    <label>imagen</label>
+                    <input name="archivo" type="file" class="form-group"/>
+               </div>
+               <div class="form-group separados">
+                    <label>Autor:</label>
+                    <select name="idAutor">
+                         <option> Seleccionar Autor</option>
+                         <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nombre}"></option>
+                    </select>         
+               </div>
+               <br/>
+               <input type="submit" value="cargar" class="button btn-success separados"/>
+          </form>
+     </body>
+</html>
